@@ -1,15 +1,14 @@
-apiVersion: apps/v1
-kind: ReplicaSet
+apiVersion:  apps/v1
+kind: Deployment
 
 metadata:
-  name: portal-noticias-replicaset
+  name: portal-noticias-deployment
 
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: portal-noticias
-
   template:
     metadata:
       name: portal-noticias
@@ -25,7 +24,6 @@ spec:
             - containerPort: 80
 
           envFrom:
-          
             - configMapRef:
                 name: portal-noticias-configmap
     
