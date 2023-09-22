@@ -5,7 +5,6 @@ metadata:
   name: portal-noticias-deployment
 
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: portal-noticias
@@ -22,6 +21,10 @@ spec:
 
           ports:
             - containerPort: 80
+
+          resources:
+            requests:
+              cpu: 10m
 
           envFrom:
             - configMapRef:
